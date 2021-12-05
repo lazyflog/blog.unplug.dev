@@ -81,10 +81,10 @@ analytics:
 author:
   name             : *name
   avatar           : "michael-rose.jpg"
-  bio              : "Just another boring, tattooed, time traveling, designer."
-  location         : "Buffalo, NY"
+  bio              : "성장하는 프론트엔드 개발자입니다."
+  location         : "대한민국"
   email            :
-  uri              : "https://mademistakes.com"
+  uri              : "https://unplug.dev"
   bitbucket        :
   codepen          :
   dribbble         :
@@ -250,7 +250,7 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: America/New_York # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Korea/Seoul # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
