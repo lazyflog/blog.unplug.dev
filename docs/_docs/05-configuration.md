@@ -28,7 +28,7 @@ theme: minimal-mistakes-jekyll
 Easily change the color scheme of the theme using one of the provided "skins":
 
 ```yaml
-minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum" "sunrise"
+minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 ```
 
 **Note:** If you have made edits to the theme's CSS files be sure to update [`/assets/css/main.scss`](https://github.com/mmistakes/minimal-mistakes/blob/master/assets/css/main.scss) to include `@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin` before the `minimal-mistakes` import.
@@ -618,6 +618,13 @@ To enable site-wide search add `search: true` to your `_config.yml`.
 
 The default search uses [**Lunr**](https://lunrjs.com/) to build a search index of all post and your documents in collections. This method is 100% compatible with sites hosted on GitHub Pages.
 
+To have it index all pages, update `lunr` in `_config.yml` like so:
+
+```yaml
+lunr:
+  search_within_pages: true
+```
+
 **Note:** Only the first 50 words of a post or page's body content is added to the Lunr search index. Setting `search_full_content` to `true` in your `_config.yml` will override this and could impact page load performance.
 {: .notice--warning}
 
@@ -813,7 +820,7 @@ facebook:
 
 ##### Open Graph default image
 
-For pages that don't have a `header.image` assigned in their YAML Front Matter, `site.og_image` will be used as a fallback. Use your logo, icon, avatar or something else that is meaningful. Just make sure it is place in the `/assets/images/` folder, a minimum size of 120px by 120px, and less than 1MB in file size.
+For pages that don't have a `header.image` assigned in their YAML Front Matter, `site.og_image` will be used as a fallback. Use your logo, icon, avatar or something else that is meaningful. Just make sure it is placed in the `/assets/images/` folder, has a minimum size of 120px by 120px, and is less than 1MB in file size.
 
 ```yaml
 og_image: /assets/images/site-logo.png
@@ -900,7 +907,7 @@ Author links are all optional, include the ones you want visible under the `auth
 | Name | Description |
 | --- | --- |
 | **label** | Link label (e.g. `"Twitter"`) |
-| **icon** | [Font Awesome icon](https://fontawesome.com/icons?d=gallery) classes (e.g. `"fab fa-fw fa-twitter-square"`) |
+| **icon** | [Font Awesome icon](https://fontawesome.com/v6/search) classes (e.g. `"fab fa-fw fa-twitter-square"`) |
 | **url** | Link URL (e.g. `"https://twitter.com/mmistakes"`) |
 
 ```yaml
@@ -933,7 +940,7 @@ Footer links can be added under the `footer.links` array.
 | Name | Description |
 | --- | --- |
 | **label** | Link label (e.g. `"Twitter"`) |
-| **icon** | [Font Awesome icon](https://fontawesome.com/icons?d=gallery) classes (e.g. `"fab fa-fw fa-twitter-square"`) |
+| **icon** | [Font Awesome icon](https://fontawesome.com/v6/search) classes (e.g. `"fab fa-fw fa-twitter-square"`) |
 | **url** | Link URL (e.g. `"https://twitter.com/mmistakes"`) |
 
 ```yaml
@@ -1033,8 +1040,15 @@ The paginator only works on files with name `index.html`. To use pagination in a
 paginate_path: /recent/page:num/
 ```
 
-**Please note:** When using Jekyll's default [pagination plugin](https://jekyllrb.com/docs/pagination/) `paginator.posts` can only be called once. If you're looking for something more powerful that can paginate category, tag, and collection pages I suggest [**jekyll-paginate-v2**](https://github.com/sverrirs/jekyll-paginate-v2).
+**Please note:** When using Jekyll's default [pagination plugin](https://jekyllrb.com/docs/pagination/) `paginator.posts` can only be called once. If you're looking for something more powerful that can paginate category, tag, and collection pages, [**jekyll-paginate-v2**](https://github.com/sverrirs/jekyll-paginate-v2) is the way to go.
 {: .notice--info}
+
+#### Using Jekyll Paginate V2
+
+Jekyll Paginate V2 is not available on GitHub Pages. You must build your site locally or with a CI service like [GitHub Actions][gh-pages-actions].
+{: .notice--info}
+
+  [gh-pages-actions]: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow
 
 ### Timezone
 
